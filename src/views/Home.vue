@@ -1,12 +1,17 @@
 <template>
-  <Home />
+  <div>
+    <Stats />
+    <News />
+  </div>
 </template>
 
 <script>
-import Home from "@/components/Home/Home";
+import Stats from "@/components/Home/Stats";
+import News from "@/components/Home/News";
 export default {
   components: {
-    Home
+    Stats,
+    News
   }
 };
 </script>

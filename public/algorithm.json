@@ -1,0 +1,107 @@
+{
+  "collection": [
+    {
+      "sentence": "Fernando Santos agradeceu o empenho dos jogadores que, em conjunto, conquistaram mais um troféu pela Seleção nacional.",
+      "words": [
+        {
+          "word": "Fernando",
+          "tf": 0.058823529411764705,
+          "idf": 1.6020599913279623
+        },
+        {
+          "word": "Santos",
+          "tf": 0.058823529411764705,
+          "idf": 1.6020599913279623
+        },
+        { "word": "agradeceu", "tf": 0.058823529411764705, "idf": 1.0 },
+        { "word": "o", "tf": 0.058823529411764705, "idf": 0.6989700043360189 },
+        { "word": "empenho", "tf": 0.058823529411764705, "idf": 1.0 },
+        { "word": "dos", "tf": 0.058823529411764705, "idf": 1.0 },
+        { "word": "jogadores", "tf": 0.058823529411764705, "idf": 1.0 },
+        { "word": "que,", "tf": 0.058823529411764705, "idf": 1.0 },
+        { "word": "em", "tf": 0.058823529411764705, "idf": 0.6989700043360189 },
+        { "word": "conjunto,", "tf": 0.058823529411764705, "idf": 1.0 },
+        { "word": "conquistaram", "tf": 0.058823529411764705, "idf": 1.0 },
+        { "word": "mais", "tf": 0.058823529411764705, "idf": 1.0 },
+        { "word": "um", "tf": 0.058823529411764705, "idf": 1.0 },
+        { "word": "troféu", "tf": 0.058823529411764705, "idf": 1.0 },
+        {
+          "word": "pela",
+          "tf": 0.058823529411764705,
+          "idf": 0.6989700043360189
+        },
+        {
+          "word": "Seleção",
+          "tf": 0.058823529411764705,
+          "idf": 1.6020599913279623
+        },
+        { "word": "nacional.", "tf": 0.058823529411764705, "idf": 1.0 }
+      ]
+    },
+    {
+      "sentence": "Cristiano Ronaldo sente-se em casa na Seleção nacional e promete dar sempre o seu melhor pela camisola portuguesa.",
+      "words": [
+        {
+          "word": "Cristiano",
+          "tf": 0.05555555555555555,
+          "idf": 1.6020599913279623
+        },
+        {
+          "word": "Ronaldo",
+          "tf": 0.05555555555555555,
+          "idf": 1.6020599913279623
+        },
+        { "word": "sente-se", "tf": 0.05555555555555555, "idf": 1.0 },
+        { "word": "em", "tf": 0.05555555555555555, "idf": 0.6989700043360189 },
+        { "word": "casa", "tf": 0.05555555555555555, "idf": 1.0 },
+        { "word": "na", "tf": 0.05555555555555555, "idf": 1.0 },
+        {
+          "word": "Seleção",
+          "tf": 0.05555555555555555,
+          "idf": 1.6020599913279623
+        },
+        { "word": "nacional", "tf": 0.05555555555555555, "idf": 1.0 },
+        { "word": "e", "tf": 0.05555555555555555, "idf": 1.0 },
+        { "word": "promete", "tf": 0.05555555555555555, "idf": 1.0 },
+        { "word": "dar", "tf": 0.05555555555555555, "idf": 1.0 },
+        { "word": "sempre", "tf": 0.05555555555555555, "idf": 1.0 },
+        { "word": "o", "tf": 0.05555555555555555, "idf": 0.6989700043360189 },
+        { "word": "seu", "tf": 0.05555555555555555, "idf": 1.0 },
+        { "word": "melhor", "tf": 0.05555555555555555, "idf": 1.0 },
+        {
+          "word": "pela",
+          "tf": 0.05555555555555555,
+          "idf": 0.6989700043360189
+        },
+        { "word": "camisola", "tf": 0.05555555555555555, "idf": 1.0 },
+        { "word": "portuguesa.", "tf": 0.05555555555555555, "idf": 1.0 }
+      ]
+    },
+    {
+      "sentence": "Portugal espremeu a Laranja Mecânica. As imagens do título",
+      "words": [
+        {
+          "word": "Portugal",
+          "tf": 0.1111111111111111,
+          "idf": 1.6020599913279623
+        },
+        { "word": "espremeu", "tf": 0.1111111111111111, "idf": 1.0 },
+        { "word": "a", "tf": 0.1111111111111111, "idf": 1.0 },
+        {
+          "word": "Laranja",
+          "tf": 0.1111111111111111,
+          "idf": 1.6020599913279623
+        },
+        {
+          "word": "Mecânica.",
+          "tf": 0.1111111111111111,
+          "idf": 1.6020599913279623
+        },
+        { "word": "As", "tf": 0.1111111111111111, "idf": 1.6020599913279623 },
+        { "word": "imagens", "tf": 0.1111111111111111, "idf": 1.0 },
+        { "word": "do", "tf": 0.1111111111111111, "idf": 1.0 },
+        { "word": "título", "tf": 0.1111111111111111, "idf": 1.0 }
+      ]
+    }
+  ]
+}

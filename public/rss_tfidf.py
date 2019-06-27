@@ -2,7 +2,6 @@ import json
 import os
 import math
 import re
-# meter um id no scrapy
 
 
 def dumpNews():
@@ -60,7 +59,6 @@ def tf_idf():
     newEntries = json.load(nf)
     deposit = json.load(gn)
     depSize = len(deposit["entries"])
-    # total de entradas no deposit?
     element = {
         "collection": []
     }

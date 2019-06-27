@@ -4,6 +4,8 @@ import re
 import json
 from datetime import datetime
 
+i = 0
+
 def filter(text):
   text = text.lower()
   text = re.sub(r'[\'\"]','',text)
@@ -15,15 +17,16 @@ class DESPORTO(scrapy.Spider):
   def start_requests(self):
     urls = [
         'http://feeds.tsf.pt/TSF-Desporto',
+        'http://feeds.tsf.pt/TSF-Destaques',
   ]
     for url in urls:
       yield scrapy.Request(url=url, callback=self.parse)
 
   def parse(self, response):
     response.selector.remove_namespaces()
-
-    filename='desporto.json'
-
+    global i
+    filename='desporto'+str(i)+'.json'
+    i += 1
     myDict=[]
 
     title = response.xpath('//item/title/text()').extract()

@@ -7,9 +7,9 @@ import re
 def dumpNews():
     nf = open('../rssScrapper/TSF-Destaques.json',
               "r", encoding="utf-8")
+    gn = open('deposit.json', "r", encoding="utf-8")
     wordCount = {}
     if not os.stat('deposit.json').st_size == 0:
-        gn = open('deposit.json', "r", encoding="utf-8")
         deposit = json.load(gn)
         for d in deposit['entries']:
             wordCount[d["word"]] = d["count"]
@@ -39,13 +39,15 @@ def dumpNews():
     rsselem = {
         "entries": []
     }
+    rn = open('rssnews.json', 'r', encoding='utf-8')
     if not os.stat('rssnews.json').st_size == 0:
-        rn = open('rssnews.json', 'r', encoding='utf-8')
         rssnews = json.load(rn)
         rsselem["entries"] = rssnews["entries"]
         rn.close()
     for n in newEntries["entries"]:
         rsselem["entries"].append(n)
+    rssSize = len(rsselem["entries"])
+    rsselem["count"] = rssSize
     rn = open('rssnews.json', 'w', encoding='utf-8')
     dmp1 = json.dumps(rsselem, ensure_ascii=False).encode('utf-8')
     rn.write(dmp1.decode('utf-8'))

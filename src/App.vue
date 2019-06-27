@@ -1,13 +1,6 @@
 <template>
   <v-app>
-    <v-tabs
-      fixed-tabs
-      centered
-      v-model="active"
-      color="cyan"
-      dark
-      slider-color="yellow"
-    >
+    <v-tabs fixed-tabs centered color="cyan" dark slider-color="yellow">
       <v-tab :key="feed">Feed</v-tab>
       <v-tab :key="configuration">Configuration</v-tab>
       <v-tab :key="about">About</v-tab>

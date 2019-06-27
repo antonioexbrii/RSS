@@ -1,53 +1,74 @@
-<template>
-  <div class="small">
-    <line-chart :chart-data="datacollection"></line-chart>
-    <button @click="fillData()">Randomize</button>
-  </div>
-</template>
-
 <script>
-import LineChart from "./LineChart.js";
-
+import { Bar } from "vue-chartjs";
 export default {
-  components: {
-    LineChart
+  extends: Bar,
+  props: {
+    labArray: Array,
+    yAxis: Array,
+    tfArray: Array,
+    idfArray: Array
   },
   data() {
     return {
-      datacollection: null
+      datacollection: {
+        labels: this.labArray,
+        datasets: [
+          {
+            label: "TF x IDF",
+            backgroundColor: "#f87979",
+            pointBackgroundColor: "white",
+            borderWidth: 1,
+            pointBorderColor: "#249EBF",
+            data: this.yAxis
+          },
+          {
+            label: "TF",
+            backgroundColor: "#4287f5",
+            pointBackgroundColor: "white",
+            borderWidth: 1,
+            pointBorderColor: "#249EBF",
+            data: this.tfArray
+          },
+          {
+            label: "IDF",
+            backgroundColor: "#9370db",
+            pointBackgroundColor: "white",
+            borderWidth: 1,
+            pointBorderColor: "#249EBF",
+            data: this.idfArray
+          }
+        ]
+      },
+      options: {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true
+              },
+              gridLines: {
+                display: true
+              }
+            }
+          ],
+          xAxes: [
+            {
+              gridLines: {
+                display: false
+              }
+            }
+          ]
+        },
+        legend: {
+          display: true
+        },
+        responsive: true,
+        maintainAspectRatio: false
+      }
     };
   },
   mounted() {
-    this.fillData();
-  },
-  methods: {
-    fillData() {
-      this.datacollection = {
-        labels: [this.getRandomInt(), this.getRandomInt()],
-        datasets: [
-          {
-            label: "Data One",
-            backgroundColor: "#f87979",
-            data: [this.getRandomInt(), this.getRandomInt()]
-          },
-          {
-            label: "Data One",
-            backgroundColor: "#f87979",
-            data: [this.getRandomInt(), this.getRandomInt()]
-          }
-        ]
-      };
-    },
-    getRandomInt() {
-      return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
-    }
+    this.renderChart(this.datacollection, this.options);
   }
 };
 </script>
-
-<style>
-.small {
-  max-width: 600px;
-  margin: 150px auto;
-}
-</style>

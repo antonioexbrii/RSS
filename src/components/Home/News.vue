@@ -1,14 +1,7 @@
 <template>
   <v-layout>
     <v-flex sm10 offset-sm1 text-xs-center>
-      <v-layout>
-        <v-flex>
-          <div class="display-2">Notícias mais recentes</div>
-        </v-flex>
-        <v-flex>
-          <v-btn @click="refreshNews()" flat>Refresh</v-btn>
-        </v-flex>
-      </v-layout>
+      <div class="display-2">Notícias mais recentes</div>
       <v-sheet>
         <v-card class="mt-2" v-for="n in allNews.entries" :key="n.link">
           <v-card-title>
@@ -31,10 +24,8 @@ export default {
   },
   methods: {
     refreshNews: function() {
-      console.log("aqui");
       import("../../../public/algorithm/rssnews.json").then(m => {
         this.allNews = m;
-        console.log("aqui");
       });
     }
   }

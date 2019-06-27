@@ -2,6 +2,7 @@ import scrapy
 from scrapy.selector import XmlXPathSelector
 import re
 import json
+from datetime import datetime
 
 def trimNumber(number):
 	number = re.sub(r'\.(\d)k',r'\1 00', number)
@@ -43,12 +44,18 @@ class TSF(scrapy.Spider):
 			
 		for item in zip(titles,link,description,pubDate):
 			myDict.append({
-				'title': item[0],
+				'sentence': item[0],
 				'link': item[1],
 				'description': item[2],
 				'pubDate': item[3]
 			})
-			
+
+		data = datetime.now()
+
+		newDict = {
+			"date": str(data),
+			"entries": myDict
+		}
 		with open(filename, 'w', encoding='utf8') as f:
-			json.dump(myDict,f, ensure_ascii=False)
+			json.dump(newDict,f, ensure_ascii=False)
 			self.log("Fechou ficheiro %s" % filename)

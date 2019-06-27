@@ -28,12 +28,9 @@
 </template>
 
 <script>
-import rss from "../../../public/algorithm/rssnews.json";
 export default {
-  data() {
-    return {
-      count: rss.count
-    };
+  props: {
+    count: Number
   }
 };
 </script>

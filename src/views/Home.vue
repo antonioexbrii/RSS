@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Stats v-bind:count="this.rssList.count" />
+    <Stats v-bind:ncount="this.rssList.count" v-bind:wcount="this.totalWords" />
     <v-divider></v-divider>
     <News v-bind:newsList="this.rssList.entries" />
     <Graphs
@@ -20,6 +20,7 @@ import Graphs from "@/components/Home/Graphs";
 import DNGraph from "@/components/Home/DNGraph";
 import rss from "../../public/algorithm/rssnews.json";
 import algo from "../../public/algorithm/algorithm.json";
+import depo from "../../public/algorithm/deposit.json";
 export default {
   components: {
     Stats,
@@ -31,10 +32,12 @@ export default {
     return {
       rssList: rss,
       algoData: algo,
+      depositInfo: depo,
       labelList: [],
       yAxis: [],
       tf: [],
-      idf: []
+      idf: [],
+      totalWords: 0
     };
   },
   methods: {
@@ -55,10 +58,20 @@ export default {
       this.yAxis = ya;
       this.tf = tfl;
       this.idf = idfl;
+    },
+    numWords: function() {
+      var ct = 0;
+      var entry;
+      for (entry of this.depositInfo.entries) {
+        console.log(entry.count);
+        ct += entry.count;
+      }
+      this.totalWords = ct;
     }
   },
   created() {
     this.extractWords();
+    this.numWords();
   }
 };
 </script>

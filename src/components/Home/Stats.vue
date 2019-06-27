@@ -3,7 +3,7 @@
     <v-flex class="ma-2">
       <v-card>
         <v-card-title class="justify-center">
-          <div class="display-2">{{ count }}</div>
+          <div class="display-2">{{ ncount }}</div>
           <div class="display-1"># de Notícias analisadas</div>
         </v-card-title>
       </v-card>
@@ -11,7 +11,7 @@
     <v-flex class="ma-2">
       <v-card>
         <v-card-title class="justify-center">
-          <div class="display-2">123</div>
+          <div class="display-2">{{ wcount }}</div>
           <div class="display-1"># de Palavras analisadas</div>
         </v-card-title>
       </v-card>
@@ -30,7 +30,8 @@
 <script>
 export default {
   props: {
-    count: Number
+    ncount: Number,
+    wcount: Number
   }
 };
 </script>

@@ -1,9 +1,14 @@
 <template>
-  <div></div>
+  <Form />
 </template>
 
 <script>
-export default {};
+import Form from "@/components/Configuration/Form";
+export default {
+  components: {
+    Form
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>

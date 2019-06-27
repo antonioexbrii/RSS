@@ -5,7 +5,8 @@ import re
 
 
 def dumpNews():
-    nf = open('entry.json', "r", encoding="utf-8")
+    nf = open('../rssScrapper/TSF-Destaques.json',
+              "r", encoding="utf-8")
     wordCount = {}
     if not os.stat('deposit.json').st_size == 0:
         gn = open('deposit.json', "r", encoding="utf-8")

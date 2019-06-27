@@ -4,21 +4,12 @@ import re
 import json
 from datetime import datetime
 
-def trimNumber(number):
-	number = re.sub(r'\.(\d)k',r'\1 00', number)
-	number = re.sub(r'comments',r'', number)
-	number = re.sub(r'\s',r'', number)
-	return number
-
-def trimAuthor(author):
-	author = re.sub(r'\w/',user, author)
-	return author
-
-def remExtras(text):
-	text = re.sub(r'\t',r'\s', text)
-	text = re.sub(r'\[[\s\w]+\]\s?',r'', text)
-	text = re.sub(r'\s?\(.+\)\s?',r'', text)
+def filter(text):
+	text = text.lower()
+	text = re.sub(r'[\'\"]','',text)
+	text = re.sub(r'[.!?:;,]','',text)
 	return text
+	
 
 class TSF(scrapy.Spider):
 	name = "tsf"
@@ -44,9 +35,11 @@ class TSF(scrapy.Spider):
 			
 		for item in zip(titles,link,description,pubDate):
 			myDict.append({
-				'sentence': item[0],
+				'sentence': filter(item[0]),
+				'title': item[0],
 				'link': item[1],
-				'description': item[2],
+				'desc_sentence': filter(item[2]),
+				'descricao': item[2],
 				'pubDate': item[3]
 			})
 

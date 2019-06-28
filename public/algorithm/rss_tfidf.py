@@ -2,11 +2,17 @@ import json
 import os
 import math
 import re
+import glob
 
 
-def dumpNews():
-    nf = open('../rssScrapper/TSF-Destaques.json',
-              "r", encoding="utf-8")
+def looper():
+    for filename in glob.glob('../rssScrapper/*.json'):
+        nf = open(filename,
+                  "r", encoding="utf-8")
+        dumpNews(nf)
+
+
+def dumpNews(nf):
     gn = open('deposit.json', "r", encoding="utf-8")
     wordCount = {}
     if not os.stat('deposit.json').st_size == 0:
@@ -61,7 +67,7 @@ def tf_idf():
     gn = open('deposit.json', "r", encoding="utf-8")
     newEntries = json.load(nf)
     deposit = json.load(gn)
-    depSize = len(deposit["entries"])
+    depSize = newEntries["count"]
     element = {
         "collection": []
     }
@@ -110,5 +116,5 @@ def calculateIDF(word, deposit, total):
     return math.log10(total/ocurrences)
 
 
-dumpNews()
+looper()
 tf_idf()

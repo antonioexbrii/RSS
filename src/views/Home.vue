@@ -1,15 +1,25 @@
 <template>
-  <div>
+  <div class="d1">
     <Stats v-bind:ncount="this.rssList.count" v-bind:wcount="this.totalWords" />
-    <v-divider></v-divider>
-    <News v-bind:newsList="this.rssList.entries" @fclick="extractWords" />
-    <Graphs
-      v-bind:yAxis.sync="this.yAxis"
-      v-bind:labArray.sync="this.labelList"
-      v-bind:tfArray.sync="this.tf"
-      v-bind:idfArray.sync="this.idf"
-    />
-    <DNGraph v-bind:lbs="this.labelList" v-bind:yaxis="this.tf" />
+    <v-flex sm8 offset-sm2>
+      <News v-bind:newsList="this.rssList.entries" @fclick="extractWords" />
+    </v-flex>
+    <v-sheet>
+      <v-layout class="ma-3">
+        <v-flex sm5 offset-sm1>
+          <Graphs
+            v-bind:update.sync="this.up"
+            v-bind:yAxis.sync="this.yAxis"
+            v-bind:labArray.sync="this.labelList"
+            v-bind:tfArray.sync="this.tf"
+            v-bind:idfArray.sync="this.idf"
+          />
+        </v-flex>
+        <v-flex sm5>
+          <DNGraph v-bind:lbs="this.labelList" v-bind:yaxis="this.tf" />
+        </v-flex>
+      </v-layout>
+    </v-sheet>
   </div>
 </template>
 
@@ -37,7 +47,8 @@ export default {
       yAxis: [],
       tf: [],
       idf: [],
-      totalWords: 0
+      totalWords: 0,
+      up: true
     };
   },
   methods: {
@@ -49,12 +60,9 @@ export default {
       var w;
       var n = 0;
       if (value) {
-        console.log(value);
         for (w = 0; w < this.algoData.collection.length; w++) {
-          console.log(this.algoData.collection[w].sentence);
           if (value === this.algoData.collection[w].sentence) {
-            w = n;
-            console.log(w);
+            n = w;
           }
         }
       }
@@ -86,4 +94,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.d1 {
+  background-color: azure;
+}
+</style>

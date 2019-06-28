@@ -6,9 +6,9 @@ export default {
     lbs: Array,
     yaxis: Array
   },
-  mounted() {
-    this.renderChart(
-      {
+  data() {
+    return {
+      datacollection: {
         labels: this.lbs,
         datasets: [
           {
@@ -24,14 +24,32 @@ export default {
               "#275ecc",
               "#5e27ab",
               "#8b13a1",
-              "#9e0b37"
+              "#9e0b37",
+              "#146e48",
+              "#53e653",
+              "#28a9b8",
+              "#113e82",
+              "#ffe600",
+              "#b979d9",
+              "#d938be"
             ],
             data: this.yaxis
           }
         ]
       },
-      { responsive: true, maintainAspectRatio: false }
-    );
+      options: { responsive: true, maintainAspectRatio: false }
+    };
+  },
+  mounted() {
+    this.renderChart(this.datacollection, this.options);
+  },
+  watch: {
+    lbs() {
+      this.datacollection.labels = this.lbs;
+      this.datacollection.datasets[0].data = this.yaxis;
+
+      this.renderChart(this.datacollection, this.options);
+    }
   }
 };
 </script>

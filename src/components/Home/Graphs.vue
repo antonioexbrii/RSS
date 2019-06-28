@@ -69,6 +69,11 @@ export default {
   },
   watch: {
     labArray() {
+      this.datacollection.labels = this.labArray;
+      this.datacollection.datasets[0].data = this.yAxis;
+      this.datacollection.datasets[1].data = this.tfArray;
+      this.datacollection.datasets[2].data = this.idfArray;
+
       this.renderChart(this.datacollection, this.options);
       this.$forceUpdate();
     }

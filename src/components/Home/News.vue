@@ -7,6 +7,7 @@
     <template v-slot:items="props">
       <tr @click="feedClick(props.item.sentence)">
         <td>{{ props.item.title }}</td>
+        <td>{{ props.item.pubDate }}</td>
       </tr>
     </template>
   </v-data-table>
@@ -15,7 +16,10 @@
 <script>
 export default {
   data: () => ({
-    cabec: [{ text: "Title", value: "title" }]
+    cabec: [
+      { text: "Title", value: "title" },
+      { text: "Date", value: "pubDate" }
+    ]
   }),
   props: {
     newsList: Array

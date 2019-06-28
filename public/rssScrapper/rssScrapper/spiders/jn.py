@@ -4,7 +4,7 @@ import re
 import json
 from datetime import datetime
 
-i = 0
+i=0
 
 def filter(text):
   text = text.lower()
@@ -12,16 +12,18 @@ def filter(text):
   text = re.sub(r'[.!?:;,]','',text)
   return text
 	
-class DESPORTO(scrapy.Spider):
-  name = "tsf"
+class JN(scrapy.Spider):
+  name = "jn"
   def start_requests(self):
     urls = [
-      'http://feeds.tsf.pt/TSF-Destaques',
-      'http://feeds.tsf.pt/TSF-Mundo',
-      'http://feeds.tsf.pt/TSF-Portugal',
-      'http://feeds.tsf.pt/TSF-Desporto',
-      'http://feeds.tsf.pt/TSF-Futuro',
-      'http://feeds.tsf.pt/TSF-Ultimas'
+        'http://feeds.jn.pt/JN-Ultimas',
+        'http://feeds.jn.pt/JN-Justica',
+        'http://feeds.jn.pt/JN-Gente',
+        'http://feeds.jn.pt/JN-Nacional',
+        'http://feeds.jn.pt/JN-Mundo',
+        'http://feeds.jn.pt/JN-Economia',
+        'http://feeds.jn.pt/JN-Pais',
+        'http://feeds.jn.pt/JN-Desporto',
   ]
     for url in urls:
       yield scrapy.Request(url=url, callback=self.parse)
@@ -29,7 +31,7 @@ class DESPORTO(scrapy.Spider):
   def parse(self, response):
     response.selector.remove_namespaces()
     global i
-    filename='tsf'+str(i)+'.json'
+    filename='jn'+str(i)+'.json'
     i += 1
     myDict=[]
 

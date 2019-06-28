@@ -176,6 +176,8 @@ import re
 import json
 from datetime import datetime
 
+i=0
+
 def filter(text):
   text = text.lower()
   text = re.sub(r'[\\'\\"]','',text)
@@ -197,9 +199,9 @@ class ${this.spider_name.toUpperCase()}(scrapy.Spider):
 
   def parse(self, response):
     response.selector.remove_namespaces()
-
-    filename='${this.file_name}.json'
-
+    global i
+    filename='${this.file_name}'+str(i)+'.json'
+    i += 1
     myDict=[]
 `
       for(var j in this.xpaths) {

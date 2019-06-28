@@ -16,12 +16,10 @@ class DESPORTO(scrapy.Spider):
   name = "tsf"
   def start_requests(self):
     urls = [
-      'http://feeds.tsf.pt/TSF-Destaques',
       'http://feeds.tsf.pt/TSF-Mundo',
       'http://feeds.tsf.pt/TSF-Portugal',
       'http://feeds.tsf.pt/TSF-Desporto',
       'http://feeds.tsf.pt/TSF-Futuro',
-      'http://feeds.tsf.pt/TSF-Ultimas'
   ]
     for url in urls:
       yield scrapy.Request(url=url, callback=self.parse)

@@ -2,12 +2,12 @@
   <div>
     <Stats v-bind:ncount="this.rssList.count" v-bind:wcount="this.totalWords" />
     <v-divider></v-divider>
-    <News v-bind:newsList="this.rssList.entries" />
+    <News v-bind:newsList="this.rssList.entries" @fclick="extractWords" />
     <Graphs
-      v-bind:yAxis="this.yAxis"
-      v-bind:labArray="this.labelList"
-      v-bind:tfArray="this.tf"
-      v-bind:idfArray="this.idf"
+      v-bind:yAxis.sync="this.yAxis"
+      v-bind:labArray.sync="this.labelList"
+      v-bind:tfArray.sync="this.tf"
+      v-bind:idfArray.sync="this.idf"
     />
     <DNGraph v-bind:lbs="this.labelList" v-bind:yaxis="this.tf" />
   </div>
@@ -41,13 +41,24 @@ export default {
     };
   },
   methods: {
-    extractWords: function() {
+    extractWords(value) {
       var labels = [];
       var ya = [];
       var tfl = [];
       var idfl = [];
       var w;
-      for (w of this.algoData.collection[0].words) {
+      var n = 0;
+      if (value) {
+        console.log(value);
+        for (w = 0; w < this.algoData.collection.length; w++) {
+          console.log(this.algoData.collection[w].sentence);
+          if (value === this.algoData.collection[w].sentence) {
+            w = n;
+            console.log(w);
+          }
+        }
+      }
+      for (w of this.algoData.collection[n].words) {
         labels.push(w.word);
         var nw = w.tf * w.idf;
         tfl.push(w.tf);
@@ -63,14 +74,13 @@ export default {
       var ct = 0;
       var entry;
       for (entry of this.depositInfo.entries) {
-        console.log(entry.count);
         ct += entry.count;
       }
       this.totalWords = ct;
     }
   },
   created() {
-    this.extractWords();
+    this.extractWords("not");
     this.numWords();
   }
 };

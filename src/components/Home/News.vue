@@ -5,7 +5,7 @@
     class="elevation-1"
   >
     <template v-slot:items="props">
-      <tr>
+      <tr @click="feedClick(props.item.sentence)">
         <td>{{ props.item.title }}</td>
       </tr>
     </template>
@@ -19,6 +19,11 @@ export default {
   }),
   props: {
     newsList: Array
+  },
+  methods: {
+    feedClick: function(tit) {
+      this.$emit("fclick", tit);
+    }
   }
 };
 </script>

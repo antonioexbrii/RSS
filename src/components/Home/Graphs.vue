@@ -67,6 +67,12 @@ export default {
       }
     };
   },
+  watch: {
+    labArray() {
+      this.renderChart(this.datacollection, this.options);
+      this.$forceUpdate();
+    }
+  },
   mounted() {
     this.renderChart(this.datacollection, this.options);
   }

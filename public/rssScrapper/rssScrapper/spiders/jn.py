@@ -16,7 +16,6 @@ class JN(scrapy.Spider):
   name = "jn"
   def start_requests(self):
     urls = [
-        'http://feeds.jn.pt/JN-Ultimas',
         'http://feeds.jn.pt/JN-Justica',
         'http://feeds.jn.pt/JN-Gente',
         'http://feeds.jn.pt/JN-Nacional',

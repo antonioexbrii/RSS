@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="d1">
     <v-tabs fixed-tabs centered color="cyan" dark slider-color="yellow">
       <v-tab :key="feed">Feed</v-tab>
       <v-tab :key="configuration">Configuration</v-tab>
@@ -36,3 +36,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+.d1 {
+  background-color: cornflowerblue;
+}
+</style>

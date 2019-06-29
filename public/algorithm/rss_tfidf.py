@@ -51,6 +51,7 @@ def dumpNews(nf):
         rsselem["entries"] = rssnews["entries"]
         rn.close()
     for n in newEntries["entries"]:
+
         rsselem["entries"].append(n)
     rssSize = len(rsselem["entries"])
     rsselem["count"] = rssSize

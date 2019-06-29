@@ -5,7 +5,7 @@
         <v-card-title class="justify-center">
           <div class="display-3">{{ ncount }}</div>
         </v-card-title>
-        <v-card-text>
+        <v-card-text class="text-xs-center">
           <div class="display-1"># de notícias analisadas</div>
         </v-card-text>
       </v-card>
@@ -15,7 +15,7 @@
         <v-card-title class="justify-center">
           <div class="display-3">{{ wcount }}</div>
         </v-card-title>
-        <v-card-text>
+        <v-card-text class="text-xs-center">
           <div class="display-1"># de palavras analisadas</div>
         </v-card-text>
       </v-card>
@@ -25,7 +25,7 @@
         <v-card-title class="justify-center">
           <div class="display-3">"{{ mrep.word }}"</div>
         </v-card-title>
-        <v-card-text>
+        <v-card-text class="text-xs-center">
           <div class="display-1">palavra mais repetida ({{ mrep.count }}x)</div>
         </v-card-text>
       </v-card>
@@ -35,7 +35,7 @@
         <v-card-title class="justify-center">
           <div class="display-3">"{{ mrel.word }}"</div>
         </v-card-title>
-        <v-card-text>
+        <v-card-text class="text-xs-center">
           <div class="display-1">
             palavra mais relevante ({{ mrel.tf * mrel.idf }})
           </div>

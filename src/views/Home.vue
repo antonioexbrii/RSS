@@ -12,7 +12,7 @@
         <v-flex sm7 xs12>
           <v-card flat>
             <v-card-title class="justify-center">
-              <div class="display-2">News List</div>
+              <div class="display-2">Lista de notícias do feed RSS</div>
             </v-card-title>
             <News
               v-bind:newsList="this.rssList.entries"
@@ -21,25 +21,25 @@
           </v-card>
         </v-flex>
         <v-flex sm5 xs12>
-          <v-card flat class="pa-3">
-            ### meter aqui uma imagem da f'ormula
+          <v-card flat>
             <v-card-title class="justify-center">
-              <div class="display-2 justify-center">What is TF-IDF?</div>
-            </v-card-title>
+              <div class="display-2 justify-center">
+                O que é o TF-IDF?
+              </div> </v-card-title
+            >### meter aqui uma imagem da f'ormula
             <v-card-text>
               <div class="body1">
-                In information retrieval, tf–idf or TFIDF, short for term
-                frequency–inverse document frequency, is a numerical statistic
-                that is intended to reflect how important a word is to a
-                document in a collection or corpus. It is often used as a
-                weighting factor in searches of information retrieval, text
-                mining, and user modeling. The tf–idf value increases
-                proportionally to the number of times a word appears in the
-                document and is offset by the number of documents in the corpus
-                that contain the word, which helps to adjust for the fact that
-                some words appear more frequently in general. tf–idf is one of
-                the most popular term-weighting schemes today; 83% of text-based
-                recommender systems in digital libraries use tf–idf.
+                O valor tf–idf (abreviação do inglês term frequency–inverse
+                document frequency, que significa frequência do termo–inverso da
+                frequência nos documentos), é uma medida estatística que tem o
+                intuito de indicar a importância de uma palavra de um documento
+                em relação a uma coleção de documentos ou em um corpus
+                linguístico. Ela é frequentemente utilizada como fator de
+                ponderação na recuperação de informações e na mineração de
+                dados. O valor tf–idf de uma palavra aumenta proporcionalmente à
+                medida que aumenta o número de ocorrências dela em um documento,
+                no entanto, esse valor é equilibrado pela frequência da palavra
+                no corpus.
               </div>
             </v-card-text>
           </v-card>
@@ -50,7 +50,7 @@
       <v-flex sm8 offset-sm2>
         <v-card flat class="ma-2 pa-2">
           <v-card-title class="justify-center">
-            <div class="display-2">Algorithm Results</div>
+            <div class="display-2">Resultados do Algoritmo</div>
           </v-card-title>
           <Graphs
             v-bind:yAxis.sync="this.yAxis"
@@ -65,7 +65,7 @@
       <v-flex sm8 offset-sm2>
         <v-card flat class="ma-2 pa-2">
           <v-card-title class="justify-center">
-            <div class="display-2">Term Frequency</div>
+            <div class="display-2">Frequência de Termo da Frase</div>
           </v-card-title>
           <DNGraph v-bind:lbs="this.labelList" v-bind:yaxis="this.tf" />
         </v-card>

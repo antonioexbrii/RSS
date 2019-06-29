@@ -1,6 +1,6 @@
 <template>
   <v-layout justify-space-around class="ma-3">
-    <v-flex sm3>
+    <v-flex sm6 md3>
       <v-card class="ma-2">
         <v-card-title class="justify-center">
           <div class="display-3">{{ ncount }}</div>
@@ -10,7 +10,7 @@
         </v-card-text>
       </v-card>
     </v-flex>
-    <v-flex sm3>
+    <v-flex sm6 md3>
       <v-card class="ma-2">
         <v-card-title class="justify-center">
           <div class="display-3">{{ wcount }}</div>
@@ -20,7 +20,7 @@
         </v-card-text>
       </v-card>
     </v-flex>
-    <v-flex sm3>
+    <v-flex sm6 md3>
       <v-card class="ma-2">
         <v-card-title class="justify-center">
           <div class="display-3">"{{ mrep.word }}"</div>
@@ -30,7 +30,7 @@
         </v-card-text>
       </v-card>
     </v-flex>
-    <v-flex sm3>
+    <v-flex sm6 md3>
       <v-card class="ma-2">
         <v-card-title class="justify-center">
           <div class="display-3">"{{ mrel.word }}"</div>

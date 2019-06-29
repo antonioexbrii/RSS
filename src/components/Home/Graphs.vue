@@ -15,7 +15,7 @@ export default {
         datasets: [
           {
             label: "TF x IDF",
-            backgroundColor: "#f87979",
+            backgroundColor: "#eb2d2d",
             pointBackgroundColor: "white",
             borderWidth: 1,
             pointBorderColor: "#249EBF",
@@ -31,7 +31,7 @@ export default {
           },
           {
             label: "IDF",
-            backgroundColor: "#9370db",
+            backgroundColor: "#05781c",
             pointBackgroundColor: "white",
             borderWidth: 1,
             pointBorderColor: "#249EBF",

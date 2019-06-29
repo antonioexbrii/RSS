@@ -1,9 +1,9 @@
 <template>
   <v-app class="d1">
-    <v-tabs fixed-tabs centered color="cyan" dark slider-color="yellow">
+    <v-tabs fixed-tabs centered color="#152e8a" dark slider-color="yellow">
       <v-tab :key="feed">Feed</v-tab>
-      <v-tab :key="configuration">Configuration</v-tab>
-      <v-tab :key="about">About</v-tab>
+      <v-tab :key="configuration">Configuração</v-tab>
+      <v-tab :key="about">Sobre</v-tab>
       <v-tab-item :key="feed">
         <Home />
       </v-tab-item>

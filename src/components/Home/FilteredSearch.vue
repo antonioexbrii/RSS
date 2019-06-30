@@ -33,6 +33,18 @@ export default {
       var matcher = new RegExp(this.searchTerm, "i");
       return this.algo.filter(function(w) {
         return matcher.test(w.sentence);
+      }).sort(function(a,b) {
+        var aw;
+        var bw;
+        var aRes=0;
+        var bRes=0;
+        for(aw of a.words)
+          aRes += aw.tf * aw.idf
+        aRes = aRes/a.words.length
+        for(bw of b.words)
+          bRes += bw.tf * bw.idf
+        bRes = bRes/b.words.length
+        return aRes - bRes
       });
     }
   }

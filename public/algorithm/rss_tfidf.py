@@ -75,14 +75,20 @@ def tf_idf():
     for k in newEntries["entries"]:
         insert = {
             "sentence": k["sentence"],
-            "words": []
+            "title": k["title"],
+            "words": [],
+            "sentence_tfidf": 0
         }
         words = k["sentence"].split()
         unique = []
+        count = 0
+        total = 0
         for word in words:
             if not word in unique:
                 tf = calculateTF(words, word)
                 idf = calculateIDF(word, deposit, depSize)
+                total += tf * idf
+                count += 1
                 welem = {
                     "word": word,
                     "tf": tf,
@@ -90,6 +96,7 @@ def tf_idf():
                 }
                 insert["words"].append(welem)
                 unique.append(word)
+        insert["sentence_tfidf"] = total / count
         element["collection"].append(insert)
     nn = open('algorithm.json', 'w', encoding='utf-8')
     str2 = json.dumps(element, ensure_ascii=False).encode('utf-8')

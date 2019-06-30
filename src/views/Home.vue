@@ -71,10 +71,19 @@
         </v-card>
       </v-flex>
     </v-sheet>
-    <FilteredSearch
-      v-bind:algo="this.algoData.collection"
-      v-bind:deposit="this.depositInfo.entries"
-    />
+    <v-sheet class="pa-2 mt-2 mb-2">
+      <v-flex sm8 offset-sm2>
+        <v-card flat class="ma-2 pa-2">
+          <v-card-title class="justify-center">
+            <div class="display-2">Procura de palavras</div>
+          </v-card-title>
+          <FilteredSearch
+            v-bind:algo="this.algoData.collection"
+            v-bind:deposit="this.depositInfo.entries"
+          />
+        </v-card>
+      </v-flex>
+    </v-sheet>
   </div>
 </template>
 

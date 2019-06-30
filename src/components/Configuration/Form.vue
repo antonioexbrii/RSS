@@ -190,12 +190,17 @@ export default {
         }
     },
     createFile: function() {
+      var weHaveTitle = false
       var index = -1;
       for (var z in this.xpaths)
         if (this.xpaths[z].campo === this.key) {
           index = z;
         }
-      if (index === -1) alert("Campo Chave não encontrado");
+      for (var q in this.xpaths)
+        if (this.xpaths[q].campo === "title") 
+          weHaveTitle = true
+      if (!weHaveTitle) alert("Campo title é obrigatótio")
+      else if (index === -1) alert("Campo Chave não encontrado");
       else {
         var str = `import scrapy
 from scrapy.selector import XmlXPathSelector
@@ -282,6 +287,8 @@ class ${this.spider_name.toUpperCase()}(scrapy.Spider):
           null
         );
         a.dispatchEvent(e);
+        alert("Scrapy Concluido\n    Guarde o ficheiro na pasta public/rssScraper/rssScraper\n    Corra o commando $ scrapy crawl "+this.spider_name+"\n    Execute o comando $ python3 rss_tfidf.py\n    Volte para a pagina Home")
+        
       }
     }
   }

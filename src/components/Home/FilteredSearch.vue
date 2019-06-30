@@ -13,7 +13,7 @@
         <v-list-tile :key="word.word">
           <v-list-tile-content>
             <v-list-tile-title v-html="word.title"></v-list-tile-title>
-            <v-list-tile-sub-title>{{'(Σ tf-idf de palavras) / numero de palavras: '+word.sentence_tfidf}}</v-list-tile-sub-title>
+            <v-list-tile-sub-title>{{'(Σ tf-idf de palavras) / número de palavras: '+word.sentence_tfidf}}</v-list-tile-sub-title>
           </v-list-tile-content>
         </v-list-tile>
       </template>

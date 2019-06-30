@@ -25,8 +25,9 @@
             <v-card-title class="justify-center">
               <div class="display-2 justify-center">
                 O que é o TF-IDF?
-              </div> </v-card-title
-            >### meter aqui uma imagem da f'ormula
+              </div> 
+              </v-card-title>
+              <v-img :src="require('../assets/equation.png')" contain height="200" ></v-img>
             <v-card-text>
               <div class="body1">
                 O valor tf–idf (abreviação do inglês term frequency–inverse

@@ -27,7 +27,7 @@ class DESPORTO(scrapy.Spider):
   def parse(self, response):
     response.selector.remove_namespaces()
     global i
-    filename='tsf'+str(i)+'.json'
+    filename='../data/tsf'+str(i)+'.json'
     i += 1
     myDict=[]
 

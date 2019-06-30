@@ -1,8 +1,9 @@
 <template>
   <v-layout justify-space-around class="ma-3 pa-2">
     <v-card centered class="ma-2 pa-2">
-      <p class="display-3 text-xs-center">Formulário de Configuração</p>
-      <p class="display-1 text-xs-center">Tabela de Urls</p>
+      <p class="display-3 text-xs-center">Configuração de Spider</p>
+      <hr>
+      <p class="display-1 text-xs-left ma-2">Tabela de Urls</p>
       <v-layout>
         <v-flex xs11>
           <v-text-field
@@ -13,13 +14,13 @@
             solo
           ></v-text-field>
         </v-flex>
-        <v-flex xs1 class="text-xs-right">
+        <v-flex xs1 mx-2>
           <v-btn
             right
             fab
             dark
             small
-            color="blue darken-1"
+            color="#152e8a"
             @click="adicionaUrl"
           >
             <v-icon dark>add</v-icon>
@@ -53,7 +54,7 @@
           >
         </template>
       </v-data-table>
-      <p class="display-1 text-xs-center">Tabela de XPaths</p>
+      <p class="display-1 text-xs-left ma-2">Tabela de XPaths</p>
       <v-layout>
         <v-flex xs5>
           <v-text-field
@@ -73,13 +74,13 @@
             solo
           ></v-text-field>
         </v-flex>
-        <v-flex xs1 class="text-xs-right">
+        <v-flex xs1 mx-2>
           <v-btn
             right
             fab
             dark
             small
-            color="blue darken-1"
+            color="#152e8a"
             @click="adicionaXPath"
           >
             <v-icon dark>add</v-icon>
@@ -143,9 +144,9 @@
           ></v-text-field>
         </v-flex>
       </v-layout>
-      <v-flex xs4 offset-xs8>
-        <v-btn dark large color="orange darken-2" @click="createFile"
-          >Adicionar</v-btn
+      <v-flex xs3 offset-xs9 >
+        <v-btn dark large color="#152e8a" @click="createFile"
+          >Download</v-btn
         >
       </v-flex>
     </v-card>
@@ -201,9 +202,7 @@ from scrapy.selector import XmlXPathSelector
 import re
 import json
 from datetime import datetime
-
 i=0
-
 def filter(text):
   text = text.lower()
   text = re.sub(r'[\\'\\"]','',text)
@@ -214,7 +213,6 @@ class ${this.spider_name.toUpperCase()}(scrapy.Spider):
   name = "${this.spider_name}"
   def start_requests(self):
     urls = [`;
-
         for (var i in this.urls)
           str += `
         '${this.urls[i]}',`;
@@ -222,11 +220,10 @@ class ${this.spider_name.toUpperCase()}(scrapy.Spider):
   ]
     for url in urls:
       yield scrapy.Request(url=url, callback=self.parse)
-
   def parse(self, response):
     response.selector.remove_namespaces()
     global i
-    filename='${this.file_name}'+str(i)+'.json'
+    filename='../data/${this.file_name}'+str(i)+'.json'
     i += 1
     myDict=[]
 `;
@@ -252,9 +249,7 @@ class ${this.spider_name.toUpperCase()}(scrapy.Spider):
         }
         str += `
       })
-
     data = datetime.now()
-
     newDict = {
       "date": str(data),
       "entries": myDict
@@ -263,7 +258,6 @@ class ${this.spider_name.toUpperCase()}(scrapy.Spider):
       json.dump(newDict,f, ensure_ascii=False)
       self.log('Fechou ficheiro %s' % filename)
       `;
-
         const blob = new Blob([str], { type: "text/plain" });
         const e = document.createEvent("MouseEvents"),
           a = document.createElement("a");

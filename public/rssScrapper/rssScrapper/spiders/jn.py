@@ -30,7 +30,7 @@ class JN(scrapy.Spider):
   def parse(self, response):
     response.selector.remove_namespaces()
     global i
-    filename='jn'+str(i)+'.json'
+    filename='../data/jn'+str(i)+'.json'
     i += 1
     myDict=[]
 

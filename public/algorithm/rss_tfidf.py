@@ -6,7 +6,7 @@ import glob
 
 
 def looper():
-    for filename in glob.glob('../rssScrapper/*.json'):
+    for filename in glob.glob('../data/*.json'):
         nf = open(filename,
                   "r", encoding="utf-8")
         dumpNews(nf)

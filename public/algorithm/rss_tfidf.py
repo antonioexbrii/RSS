@@ -6,6 +6,15 @@ import glob
 
 
 def looper():
+    if os.path.exists("deposit.json"):
+        nn = open('deposit.json', 'w', encoding='utf-8')
+        nn.write('')
+    if os.path.exists("algorithm.json"):
+        nn = open('algorithm.json', 'w', encoding='utf-8')
+        nn.write('')
+    if os.path.exists("rssnews.json"):
+        nn = open('rssnews.json', 'w', encoding='utf-8')
+        nn.write('')
     for filename in glob.glob('../data/*.json'):
         nf = open(filename,
                   "r", encoding="utf-8")

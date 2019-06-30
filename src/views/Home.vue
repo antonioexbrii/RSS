@@ -8,6 +8,20 @@
     />
 
     <v-sheet class="pa-2 mt-2 mb-2">
+      <v-flex sm8 offset-sm2>
+        <v-card flat class="ma-2 pa-2">
+          <v-card-title class="justify-center">
+            <div class="display-2">Procura de palavras</div>
+          </v-card-title>
+          <FilteredSearch
+            v-bind:algo="this.algoData.collection"
+            v-bind:deposit="this.depositInfo.entries"
+            @fclick="extractWords"
+          />
+        </v-card>
+      </v-flex>
+    </v-sheet>
+    <v-sheet class="pa-2 mt-2 mb-2">
       <v-layout>
         <v-flex sm7 xs12>
           <v-card flat>
@@ -25,9 +39,13 @@
             <v-card-title class="justify-center">
               <div class="display-2 justify-center">
                 O que é o TF-IDF?
-              </div> 
-              </v-card-title>
-              <v-img :src="require('../assets/equation.png')" contain height="200" ></v-img>
+              </div>
+            </v-card-title>
+            <v-img
+              :src="require('../assets/equation.png')"
+              contain
+              height="200"
+            ></v-img>
             <v-card-text>
               <div class="body1">
                 O valor tf–idf (abreviação do inglês term frequency–inverse
@@ -49,7 +67,7 @@
     </v-sheet>
     <v-sheet class="pa-2 mt-2 mb-2">
       <v-flex sm8 offset-sm2>
-        <v-card flat class="ma-2 pa-2">
+        <v-card flat class="ma-2 pa-2" name="graphs">
           <v-card-title class="justify-center">
             <div class="display-2">Resultados do Algoritmo</div>
           </v-card-title>
@@ -69,19 +87,6 @@
             <div class="display-2">Frequência de Termo da Frase</div>
           </v-card-title>
           <DNGraph v-bind:lbs="this.labelList" v-bind:yaxis="this.tf" />
-        </v-card>
-      </v-flex>
-    </v-sheet>
-    <v-sheet class="pa-2 mt-2 mb-2">
-      <v-flex sm8 offset-sm2>
-        <v-card flat class="ma-2 pa-2">
-          <v-card-title class="justify-center">
-            <div class="display-2">Procura de palavras</div>
-          </v-card-title>
-          <FilteredSearch
-            v-bind:algo="this.algoData.collection"
-            v-bind:deposit="this.depositInfo.entries"
-          />
         </v-card>
       </v-flex>
     </v-sheet>

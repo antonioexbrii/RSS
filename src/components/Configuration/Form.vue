@@ -2,7 +2,7 @@
   <v-layout justify-space-around class="ma-3 pa-2">
     <v-card centered class="ma-2 pa-2">
       <p class="display-3 text-xs-center">Configuração de Spider</p>
-      <hr>
+      <hr />
       <p class="display-1 text-xs-left ma-2">Tabela de Urls</p>
       <v-layout>
         <v-flex xs11>
@@ -15,14 +15,7 @@
           ></v-text-field>
         </v-flex>
         <v-flex xs1 mx-2>
-          <v-btn
-            right
-            fab
-            dark
-            small
-            color="#152e8a"
-            @click="adicionaUrl"
-          >
+          <v-btn right fab dark small color="#152e8a" @click="adicionaUrl">
             <v-icon dark>add</v-icon>
           </v-btn>
         </v-flex>
@@ -75,14 +68,7 @@
           ></v-text-field>
         </v-flex>
         <v-flex xs1 mx-2>
-          <v-btn
-            right
-            fab
-            dark
-            small
-            color="#152e8a"
-            @click="adicionaXPath"
-          >
+          <v-btn right fab dark small color="#152e8a" @click="adicionaXPath">
             <v-icon dark>add</v-icon>
           </v-btn>
         </v-flex>
@@ -144,10 +130,8 @@
           ></v-text-field>
         </v-flex>
       </v-layout>
-      <v-flex xs3 offset-xs9 >
-        <v-btn dark large color="#152e8a" @click="createFile"
-          >Download</v-btn
-        >
+      <v-flex xs3 offset-xs9>
+        <v-btn dark large color="#152e8a" @click="createFile">Download</v-btn>
       </v-flex>
     </v-card>
   </v-layout>
@@ -190,16 +174,15 @@ export default {
         }
     },
     createFile: function() {
-      var weHaveTitle = false
+      var weHaveTitle = false;
       var index = -1;
       for (var z in this.xpaths)
         if (this.xpaths[z].campo === this.key) {
           index = z;
         }
       for (var q in this.xpaths)
-        if (this.xpaths[q].campo === "title") 
-          weHaveTitle = true
-      if (!weHaveTitle) alert("Campo title é obrigatótio")
+        if (this.xpaths[q].campo === "title") weHaveTitle = true;
+      if (!weHaveTitle) alert("Campo title é obrigatótio");
       else if (index === -1) alert("Campo Chave não encontrado");
       else {
         var str = `import scrapy
@@ -287,8 +270,11 @@ class ${this.spider_name.toUpperCase()}(scrapy.Spider):
           null
         );
         a.dispatchEvent(e);
-        alert("Scrapy Concluido\n    Guarde o ficheiro na pasta public/rssScraper/rssScraper\n    Corra o commando $ scrapy crawl "+this.spider_name+"\n    Execute o comando $ python3 rss_tfidf.py\n    Volte para a pagina Home")
-        
+        alert(
+          "Scrapy Concluido\n    Guarde o ficheiro na pasta public/rssScraper/rssScraper\n    Corra o commando $ scrapy crawl " +
+            this.spider_name +
+            "\n    Execute o comando $ python3 rss_tfidf.py\n    Volte para a pagina Home"
+        );
       }
     }
   }
